@@ -1,13 +1,20 @@
 "use strict";
 function dice(diceNumber) {
-  const diceNum = Number(diceNumber.slice(1));
-  const letter = diceNumber[0];
+  const diceValues = {
+    d2: 2,
+    d6: 6,
+    d8: 8,
+    d10: 10,
+    d12: 12,
+    d16: 16,
+    d20: 20,
+  };
 
-  if (letter !== "d" || diceNum < 4 || diceNum > 20 || diceNum % 2 !== 0) {
+  if (!diceValues[diceNumber]) {
     console.log("неверный формат");
     return false;
   }
   const num = Math.random();
-  return Math.floor(num * diceNum + 1);
+  return Math.floor(num * diceValues[diceNumber] + 1);
 }
-dice("d10");
+console.log(dice("d21"));
