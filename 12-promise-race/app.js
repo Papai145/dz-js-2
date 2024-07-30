@@ -5,7 +5,6 @@ const promise3 = new Promise((resolve, reject) => {
 });
 
 async function race(arr) {
-  const race = await Promise.race(arr);
-  return race;
+  return await Promise.race(arr);
 }
 race([promise2, promise1, promise3]).then((res) => console.log(res));
